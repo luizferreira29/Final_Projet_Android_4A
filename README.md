@@ -3,7 +3,7 @@
 ![Screenshots](https://github.com/luizferreira29/Final_Projet_Android_4A/blob/master/Screenshots/pikachu.png)
 
 Second projet sur Android Studio, application qui permet de s'identifier afin d'afficher une liste de pokemons et de pouvoir découvrir de nouveaux
-pokemons et passer un bon moment devant sa console munie du jeux pokemon.
+pokemons et passer un bon moment devant sa console munie d'un des jeux pokemon.
 Pour cette application je n'ai pas encore utilisé le système de mot de passe. Pour se connecter il suffit d'écrire un nom dans l'epace de login puis d'appuyer sur 
 le bouton "New ? Create an account" et juste après appuyer sur le bouton login. Si vous n'avez pas encore enregistré votre nom vous allez avoir un pop-up qui signale un problème.
 
