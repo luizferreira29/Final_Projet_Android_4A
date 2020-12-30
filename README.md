@@ -1,4 +1,4 @@
-# Projet Programmation Mobile (Liste de pokemon avec utilisateur)
+# Projet Programmation Mobile (Liste de pokemons avec utilisateurs)
 
 Second projet sur Android Studio, application qui permet de s'identifier afin d'afficher une liste de pokemons afin de pouvoir découvrir de nouveaux
 pokemons et passer un bon moment devant sa console munie du jeux pokemon.
