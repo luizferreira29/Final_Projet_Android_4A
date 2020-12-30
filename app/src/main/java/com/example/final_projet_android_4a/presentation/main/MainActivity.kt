@@ -20,21 +20,13 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.loginLiveData.observe(this, Observer {
             when(it){
                 is LoginSuccess -> {
-                    //TODO Navigate
-                    /*MaterialAlertDialogBuilder(this)
-                        .setTitle("Erreur")
-                        .setMessage("bv bogoss")
-                        .setPositiveButton("Ok") { dialog, which ->
-                            dialog.dismiss()
-                        }
-                        .show()*/
                     val intent = Intent(this, SecondActivity::class.java)
                     startActivity(intent)
                 }
                 LoginError -> {
                     MaterialAlertDialogBuilder(this)
                         .setTitle("Erreur")
-                        .setMessage("Compte inconnu")
+                        .setMessage("Vous n'êtes pas enregistré sur la base de données")
                         .setPositiveButton("Ok") { dialog, which ->
                             dialog.dismiss()
                         }
