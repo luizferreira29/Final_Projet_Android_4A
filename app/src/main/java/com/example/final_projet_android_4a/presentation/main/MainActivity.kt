@@ -21,13 +21,13 @@ class MainActivity : AppCompatActivity() {
             when(it){
                 is LoginSuccess -> {
                     //TODO Navigate
-                    MaterialAlertDialogBuilder(this)
+                    /*MaterialAlertDialogBuilder(this)
                         .setTitle("Erreur")
                         .setMessage("bv bogoss")
                         .setPositiveButton("Ok") { dialog, which ->
                             dialog.dismiss()
                         }
-                        .show()
+                        .show()*/
                     val intent = Intent(this, SecondActivity::class.java)
                     startActivity(intent)
                 }
@@ -43,12 +43,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-        login_button.setOnClickListener {
-            mainViewModel.onClickedLogin(login_edit.text.toString().trim(), password_edit.text.toString())
-        }
-
         create_account_button.setOnClickListener{
             mainViewModel.onClickedCreate(login_edit.text.toString().trim(), password_edit.text.toString())
+        }
+        login_button.setOnClickListener {
+            mainViewModel.onClickedLogin(login_edit.text.toString().trim(), password_edit.text.toString())
         }
     }
 }

@@ -6,13 +6,13 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="6dip"
         android:contentDescription="TODO"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/pokeball"/>
 
     <TextView
         android:id="@+id/secondLine"
@@ -25,7 +25,8 @@
         android:text="Description"
         android:textSize="12sp"
         android:singleLine="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="#ffffff"/>
 
     <TextView
         android:id="@+id/firstLine"
@@ -40,6 +41,7 @@
         android:text="Example application"
         android:textSize="16sp"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@id/icon" />
+        android:layout_toEndOf="@id/icon"
+        android:textColor="#ffffff"/>
 
 </RelativeLayout>

@@ -19,7 +19,7 @@ class ListViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
     fun bind(beer: Beer) {
         mNameView?.text = beer.name
-        mSpeciesView?.text = beer.tagline
+        mSpeciesView?.text = beer.url
     }
 
 }

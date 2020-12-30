@@ -19,7 +19,7 @@ class SecondActivity : AppCompatActivity() {
     private lateinit var adapter: ListAdapter
     private lateinit var linearLayoutManager: LinearLayoutManager
     private var PRIVATE_MODE = 0
-    private val PREF_NAME = "myApp"
+    private val PREF_NAME = "Pokemon"
     private lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,48 +29,38 @@ class SecondActivity : AppCompatActivity() {
         linearLayoutManager = LinearLayoutManager(this)
         list_recycler_view.layoutManager = linearLayoutManager
 
-
-        //showList();
         var beerList = listOf<Beer>()
         beerList= getDataFromCache()
 
-
         if (beerList.isNullOrEmpty()) {
-            //Toast.makeText(getApplicationContext(), "Liste existe", Toast.LENGTH_SHORT).show();
-            mbeer = run("https://pokeapi.co/api/v2/pokemon?limit=100&offset=200")
-
-
+            mbeer = run("https://pokeapi.co/api/v2/pokemon?limit=100&offset=0")
         } else {
-            // Toast.makeText(getApplicationContext(), "Liste existe pas", Toast.LENGTH_SHORT).show();
             adapter = ListAdapter(beerList)
-
-
-
             runOnUiThread { list_recycler_view.adapter = adapter }
         }
-
     }
-    private fun saveList(dbzList: List<Beer>) {
+
+    private fun saveList(beerList: List<Beer>) {
         var gson = Gson()
         sharedPref = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-        val jsonString: String = gson.toJson(dbzList)
+        val jsonString: String = gson.toJson(beerList)
         sharedPref
             .edit()
             .putString(PREF_NAME, jsonString)
             .apply()
-        //Toast.makeText(getApplicationContext(), "Liste sauvegarde", Toast.LENGTH_SHORT).show();
     }
+
     private fun getDataFromCache(): List<Beer> {
         sharedPref  = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-        val jsonDbz = sharedPref.getString(PREF_NAME, null)
+        val jsonBeer = sharedPref.getString(PREF_NAME, null)
         var gson = Gson()
-        return if (jsonDbz == null) {
+        return if (jsonBeer == null) {
 
             return listOf<Beer>()
         } else {
             val listType =
                 object : TypeToken<List<Beer>>() {}.type
-            return gson.fromJson(jsonDbz, listType)
+            return gson.fromJson(jsonBeer, listType)
         }
     }
     fun run(url: String): List<Beer> {
@@ -83,17 +73,20 @@ class SecondActivity : AppCompatActivity() {
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {}
             override fun onResponse(call: Call, response: Response) {
+
                 var responses = client.newCall(request).execute();
                 val jsonData = responses.body()!!.string()
                 val Jobject = JSONObject(jsonData)
                 val Jarray = Jobject.getJSONArray("results")
+
                 var tempName : String
-                var tempSpecie : String
+                var tempUrl : String
                 var mbeer = listOf<Beer>()
+
                 for (i in 0 until Jarray.length()) {
                     tempName = Jarray.getJSONObject(i).getString("name")
-                    tempSpecie = Jarray.getJSONObject(i).getString("url")
-                    mbeer += Beer(tempName,tempSpecie)
+                    tempUrl = Jarray.getJSONObject(i).getString("url")
+                    mbeer += Beer(tempName,tempUrl)
                 }
 
                 adapter = ListAdapter(mbeer)
@@ -101,8 +94,6 @@ class SecondActivity : AppCompatActivity() {
                 println(mbeer.size)
                 saveList(mbeer)
                 runOnUiThread { list_recycler_view.adapter = adapter }
-
-                // Stuff that updates the UI
             }
         })
         return mbeer
