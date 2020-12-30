@@ -1,5 +1,7 @@
 # Projet Programmation Mobile (Liste de pokemons avec utilisateurs)
 
+![Screenshots](https://github.com/luizferreira29/Final_Projet_Android_4A/blob/master/Screenshots/pikachu.png)
+
 Second projet sur Android Studio, application qui permet de s'identifier afin d'afficher une liste de pokemons afin de pouvoir découvrir de nouveaux
 pokemons et passer un bon moment devant sa console munie du jeux pokemon.
 Pour cette application je n'ai pas encore utilisé le système de mot de passe. Pour se connecter il suffit d'écrire un nom dans l'epace de login puis d'appuyer sur 
@@ -30,6 +32,8 @@ https://github.com/luizferreira29/Final_Projet_Android_4A
 
 * Affichage du logo de l'application
 
+![Screenshots](https://github.com/luizferreira29/Final_Projet_Android_4A/blob/master/Screenshots/screen1.PNG)
+
 ### Ecran d'accueil Login
 
 * Design
@@ -38,8 +42,14 @@ https://github.com/luizferreira29/Final_Projet_Android_4A
 * TextBox et PasswordBox
 * PopUp en cas d'erreur 
 
+![Screenshots](https://github.com/luizferreira29/Final_Projet_Android_4A/blob/master/Screenshots/screen2.PNG)
+![Screenshots](https://github.com/luizferreira29/Final_Projet_Android_4A/blob/master/Screenshots/screen3.PNG)
+
 ### Liste des pokemons
 
 * Affichage du nom de plus de 50 pokemons en liste
 * Affichage de l'URL de la page de l'API pour chaque pokemon 
 * Design style pokemon
+
+![Screenshots](https://github.com/luizferreira29/Final_Projet_Android_4A/blob/master/Screenshots/screen4.PNG)
+![Screenshots](https://github.com/luizferreira29/Final_Projet_Android_4A/blob/master/Screenshots/pokeball.png)
